@@ -1,4 +1,4 @@
-# 8_puzzle
+# Nhóm NBC: trò chơi 8_puzzle
 
 1.  Họ Tên: Nguyễn Thái Bình              
     MSSV:   23110080
