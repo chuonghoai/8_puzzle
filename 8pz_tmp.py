@@ -24,8 +24,11 @@ class eight_puzzle:
     #2. Xáo trộn ngẫu nhiên vị trí xuất hiện các con số
     def random_position(self, order):
         #Điều kiện để ko xáo trộn vị trí các số nếu user muốn thắng nhanh
+        order = list(order)
         if not self.quickWin:
             random.shuffle(order)
+            while(order == self.position_order):
+                random.shuffle(order)
             
         #Sau khi xáo trộn, sắp xếp lần lượt các con số của order vào các vị trí trên position
         index = 0
