@@ -14,17 +14,33 @@ class eight_puzzle:
     def __init__(self, root):
         self.root = root
         self.root.title("8 puzzle")
-        self.position = [[1, 0]]  # 1: red, 0: black
-        self.buttons = [[None, None]]
+        self.root.config(bg="lightgray")
+        
+        self.position = [   [[4, '4'], [1, '1'], [8, '8']],
+                            [[3, '3'], [0, ''], [2, '2']],
+                            [[6, '6'], [5, '5'], [7, '7']]]
+        
+        self.position_order = [0, 1, 2, 3, 4, 5, 6, 7, 8]      
+        self.position_win = [[[1, '1'], [2, '2'], [3, '3']],
+                             [[4, '4'], [5, '5'], [6, '6']],
+                             [[7, '7'], [8, '8'], [0, '']]]
+        self.game_size = 3
+        self.buttons = []
+        
+        #Tạo giao diện
         self.create_widget()
         
     def create_widget(self):
-        self.buttons[0][0] = tk.Button(self.root, width=8, height=4, bg="red",
-                                       command=lambda x=0, y=0: self.toggle(x, y))
-        self.buttons[0][0].grid(row=0, column=0, padx=2, pady=2)
-        self.buttons[0][1] = tk.Button(self.root, width=8, height=4, bg="black",
-                                       command=lambda x=0, y=1: self.toggle(x, y))
-        self.buttons[0][1].grid(row=0, column=1, padx=2, pady=2)
+        for i in range(self.game_size):
+            row = []
+            for j in range(self.game_size):
+                color = "white" if self.position[i][j][0] == 0 else "lightpink"
+
+                button = tk.Button(self.root, width=8, height=4, bg=color,
+                                   command=lambda x=i, y=j: self.toggle(x, y),
+                                   text=self.position[i][j][1])
+                row.append(button)
+            self.buttons.append(row)
     
     def toggle(self, x, y):
         # Đổi màu giữa 2 nút khi click
