@@ -100,7 +100,7 @@ class eight_puzzle:
 
                     #Thay đổi màu sắc của 2 ô cho nhau
                     self.buttons[a][b].config(text=self.position[a][b][1], bg = "lightpink")
-                    self.buttons[x][y].config(text=self.position[x][y][1], bg = "white", )
+                    self.buttons[x][y].config(text=self.position[x][y][1], bg = "white")
         
         #Mỗi lần user click thì kiểm tra xem nước đi đó có win ko
         self.check_win()
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     #1. Tạo giao diện chính
     root = tk.Tk()
     
-    #2. Gọi lớp eight_puzzle
+    #2. Gọi lớp eight_puzzle để chạy các hàm trong đó
     game = eight_puzzle(root)
     
     #3. Chuẩn bị ví trí để chỉnh vị trí xuất hiện khi chạy chương trình
