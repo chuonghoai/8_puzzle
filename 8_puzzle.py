@@ -37,15 +37,10 @@ class eight_puzzle:
                 color = "white" if self.position[i][j][0] == 0 else "lightpink"
 
                 button = tk.Button(self.root, width=8, height=4, bg=color,
-                                   command=lambda x=i, y=j: self.toggle(x, y),
                                    text=self.position[i][j][1])
                 button.grid(row=i, column=j, padx=2, pady=2)
                 row.append(button)
             self.buttons.append(row)
-    
-    def toggle(self, x, y):
-        print('aaaaa')
-                
         
 if __name__ == "__main__":
     root = tk.Tk()
