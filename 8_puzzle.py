@@ -39,16 +39,12 @@ class eight_puzzle:
                 button = tk.Button(self.root, width=8, height=4, bg=color,
                                    command=lambda x=i, y=j: self.toggle(x, y),
                                    text=self.position[i][j][1])
+                button.grid(row=i, column=j, padx=2, pady=2)
                 row.append(button)
             self.buttons.append(row)
     
     def toggle(self, x, y):
-        # Đổi màu giữa 2 nút khi click
-        if x == 0 and y in [0, 1]:
-            # Đảo vị trí màu
-            self.position[0][0], self.position[0][1] = self.position[0][1], self.position[0][0]
-            self.buttons[0][0].config(bg="red" if self.position[0][0] == 1 else "black")
-            self.buttons[0][1].config(bg="red" if self.position[0][1] == 1 else "black")
+        print('aaaaa')
                 
         
 if __name__ == "__main__":
