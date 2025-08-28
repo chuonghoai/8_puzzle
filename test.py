@@ -29,7 +29,5 @@ class eight_puzzle:
         
 if __name__ == "__main__":
     root = tk.Tk()
-    
     game = eight_puzzle(root)
-
     root.mainloop()
