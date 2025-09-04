@@ -20,6 +20,14 @@ class eight_puzzle:
         
         #Tạo giao diện
         self.create_widgets(self.position_order)
+
+        #Sự kiện nhấn phím R thì reset trò chơi
+        self.root.bind("<r>", lambda event: self.reset())
+        self.root.bind("<R>", lambda event: self.reset())
+
+        #Sự kiện nhấn phím W thì win nhanh trò chơi
+        self.root.bind("<w>", lambda event: self.quick_win())
+        self.root.bind("<W>", lambda event: self.quick_win())
     
     #2. Xáo trộn ngẫu nhiên vị trí xuất hiện các con số
     def random_position(self, order):
