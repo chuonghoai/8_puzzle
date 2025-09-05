@@ -35,7 +35,7 @@ class eight_puzzle:
         order = list(order)
         if not self.quickWin:
             random.shuffle(order)
-            while(order == self.position_order):
+            while order == self.position_order or not self.if_sovle(order):
                 random.shuffle(order)
             
         #Sau khi xáo trộn, sắp xếp lần lượt các con số của order vào các vị trí trên position
@@ -48,8 +48,14 @@ class eight_puzzle:
                 row.append(pos)
                 index += 1
             self.position.append(row)       #Cứ mỗi khi sắp xếp xong 1 dòng thì thêm dòng đó vào position
-            
-    #Hàm tạo giao diện
+    
+    #3. Kiểm tra ma trận có thể giải được ko
+    def if_sovle(self, order):
+        a = [x for x in order if x != 0]
+        inv = sum(1 for i in range(len(a)) for j in range(i+1, len(a)) if a[i] > a[j])
+        return inv % 2 == 0
+         
+    #4. Hàm tạo giao diện
     def create_widgets(self, order):
         #Xáo trộn cấc vị trí trước khi tạo giao diện
         self.random_position(order)
